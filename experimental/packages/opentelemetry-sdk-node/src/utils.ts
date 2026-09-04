@@ -28,6 +28,7 @@ import {
   osDetector,
   processDetector,
   serviceInstanceIdDetector,
+  vcsDetector,
 } from '@opentelemetry/resources';
 import type { SpanExporter, SpanProcessor } from '@opentelemetry/sdk-trace';
 import {
@@ -59,6 +60,7 @@ const RESOURCE_DETECTOR_HOST = 'host';
 const RESOURCE_DETECTOR_OS = 'os';
 const RESOURCE_DETECTOR_PROCESS = 'process';
 const RESOURCE_DETECTOR_SERVICE_INSTANCE_ID = 'serviceinstance';
+const RESOURCE_DETECTOR_VCS = 'vcs';
 
 export function getResourceDetectorsFromEnv(): Array<ResourceDetector> {
   // When updating this list, make sure to also update the section `resourceDetectors` on README.
@@ -68,6 +70,7 @@ export function getResourceDetectorsFromEnv(): Array<ResourceDetector> {
     [RESOURCE_DETECTOR_SERVICE_INSTANCE_ID, serviceInstanceIdDetector],
     [RESOURCE_DETECTOR_PROCESS, processDetector],
     [RESOURCE_DETECTOR_ENVIRONMENT, envDetector],
+    [RESOURCE_DETECTOR_VCS, vcsDetector],
   ]);
 
   const resourceDetectorsFromEnv = getStringListFromEnv(

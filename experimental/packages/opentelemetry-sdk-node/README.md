@@ -164,6 +164,7 @@ If `resourceDetectors` was not set, you can also use the environment variable `O
 - `os`
 - `process`
 - `serviceinstance` (experimental)
+- `vcs` - reads `vcs.commit_sha` / `vcs.repository_url` from `MW_VCS_COMMIT_SHA` / `MW_VCS_REPOSITORY_URL`, falling back to the local `.git` directory
 - `all` - enable all resource detectors above
   - **NOTE:** future versions of `@opentelemetry/sdk-node` may include additional detectors that will be covered by this scope.
 - `none` - disable resource detection

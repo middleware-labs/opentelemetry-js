@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orders-api
+  labels:
+    app: orders-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: orders-api
+  template:
+    metadata:
+      labels:
+        app: orders-api
+      annotations:
+        # Namespaced form "<namespace>/middleware-nodejs" if the
+        # Instrumentation CR lives in a different namespace than this pod.
+        # instrumentation.opentelemetry.io/inject-nodejs: "middleware-nodejs"
+    spec:
+      containers:
+        - name: orders-api
+          image: ghcr.io/middleware-labs/nodejs-sample-app:opsai
+          ports:
+            - name: http
+              containerPort: 3000
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: http
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: orders-api
+spec:
+  selector:
+    app: orders-api
+  ports:
+    - port: 80
+      targetPort: http

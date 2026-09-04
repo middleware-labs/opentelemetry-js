@@ -1,0 +1,13 @@
+{
+  "name": "orders-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Minimal Express orders API, for verifying the otel-js init container in a real cluster.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

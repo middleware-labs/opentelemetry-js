@@ -7,4 +7,5 @@ export {
   osDetector,
   processDetector,
   serviceInstanceIdDetector,
+  vcsDetector,
 } from './node';

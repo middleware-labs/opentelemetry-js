@@ -1,0 +1,9 @@
+{
+  "name": "@middleware.io/otel-extensions",
+  "version": "0.1.0",
+  "description": "Middleware OpenTelemetry extensions: exception.stack_details enrichment and vcs.* resource detection, using only public OTel extension points.",
+  "main": "index.js",
+  "files": ["index.js", "lib/"],
+  "license": "Apache-2.0",
+  "engines": { "node": ">=18" }
+}

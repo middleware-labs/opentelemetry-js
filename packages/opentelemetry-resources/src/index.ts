@@ -11,6 +11,7 @@ export {
   osDetector,
   processDetector,
   serviceInstanceIdDetector,
+  vcsDetector,
 } from './detectors';
 export type { Resource } from './Resource';
 export {

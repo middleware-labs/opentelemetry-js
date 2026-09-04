@@ -1,0 +1,13 @@
+# Used by docker/otel-js-init-container/Dockerfile, which COPYs the whole
+# repo (build context = repo root) into its sdk-build stage. Keep this list
+# to things that are safely regenerated inside the image, so the image
+# always builds from source rather than stale host artifacts.
+.git
+**/.git
+node_modules
+**/node_modules
+**/build
+**/coverage
+**/.nyc_output
+*.log
+npm-debug.log*

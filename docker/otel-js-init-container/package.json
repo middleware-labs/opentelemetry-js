@@ -1,0 +1,17 @@
+{
+  "name": "@middleware-labs/otel-js-init-container-test",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "clean": "rimraf build/*",
+    "postinstall": "copyfiles 'node_modules/**' package.json build/workspace/ && npm -C build/workspace prune --omit=dev --no-package-lock"
+  },
+  "devDependencies": {
+    "copyfiles": "^2.4.1",
+    "rimraf": "^6.0.1"
+  },
+  "dependencies": {
+    "@opentelemetry/api": "1.9.1",
+    "@opentelemetry/auto-instrumentations-node": "^0.80.0"
+  }
+}

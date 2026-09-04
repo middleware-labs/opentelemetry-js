@@ -4,7 +4,13 @@
  */
 
 export { TracerProvider } from './TracerProvider';
-export { BatchSpanProcessor, RandomIdGenerator } from './platform';
+export {
+  BatchSpanProcessor,
+  RandomIdGenerator,
+  buildExceptionStackDetails,
+} from './platform';
+export type { ExceptionStackFrame } from './platform';
+export { ATTR_EXCEPTION_STACK_DETAILS } from './enums';
 export { ConsoleSpanExporter } from './export/ConsoleSpanExporter';
 export { InMemorySpanExporter } from './export/InMemorySpanExporter';
 export type { ReadableSpan } from './export/ReadableSpan';

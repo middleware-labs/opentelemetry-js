@@ -5,3 +5,5 @@
 
 export { BatchSpanProcessor } from './export/BatchSpanProcessor';
 export { RandomIdGenerator } from './RandomIdGenerator';
+export { buildExceptionStackDetails } from './exceptionStackDetails';
+export type { ExceptionStackFrame } from './exceptionStackDetails';

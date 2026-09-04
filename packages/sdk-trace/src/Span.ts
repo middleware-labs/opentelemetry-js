@@ -37,7 +37,8 @@ import {
   ATTR_EXCEPTION_TYPE,
 } from '@opentelemetry/semantic-conventions';
 import type { ReadableSpan } from './export/ReadableSpan';
-import { ExceptionEventName } from './enums';
+import { ATTR_EXCEPTION_STACK_DETAILS, ExceptionEventName } from './enums';
+import { buildExceptionStackDetails } from './platform';
 import type { SpanProcessor } from './SpanProcessor';
 import type { TimedEvent } from './TimedEvent';
 import type { SpanLimits } from './types';
@@ -439,6 +440,12 @@ export class SpanImpl implements Span {
       }
       if (exception.stack) {
         attributes[ATTR_EXCEPTION_STACKTRACE] = exception.stack;
+
+        const stackDetails = buildExceptionStackDetails(exception.stack);
+        if (stackDetails) {
+          attributes[ATTR_EXCEPTION_STACK_DETAILS] =
+            JSON.stringify(stackDetails);
+        }
       }
     }
 

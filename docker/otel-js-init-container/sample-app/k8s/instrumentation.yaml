@@ -1,0 +1,22 @@
+# Same CR documented in ../../README.md ("Use with a real OTel Operator
+# Instrumentation CR") -- kept here too so this directory is a self-contained
+# `kubectl apply -f k8s/`. Requires the OTel Operator already installed in
+# the cluster.
+apiVersion: opentelemetry.io/v1alpha1
+kind: Instrumentation
+metadata:
+  name: middleware-nodejs
+spec:
+  nodejs:
+    image: <your-registry>/otel-js-init-container:test # built via ../../README.md
+  env:
+    - name: OTEL_TRACES_EXPORTER
+      value: console # swap for `otlp` once pointed at a real collector
+    - name: OTEL_METRICS_EXPORTER
+      value: none
+    - name: OTEL_LOGS_EXPORTER
+      value: none
+    - name: MW_VCS_COMMIT_SHA
+      value: <commit-sha>
+    - name: MW_VCS_REPOSITORY_URL
+      value: <repository-url>

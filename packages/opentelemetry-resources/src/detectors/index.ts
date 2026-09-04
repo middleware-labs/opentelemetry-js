@@ -9,5 +9,6 @@ export {
   osDetector,
   processDetector,
   serviceInstanceIdDetector,
+  vcsDetector,
 } from './platform';
 export { noopDetector } from './NoopDetector';
